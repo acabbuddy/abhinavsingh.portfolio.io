@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power BI Executive Portfolio</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=zodiak@400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root,[data-theme="light"]{--text-xs:clamp(.75rem,.7rem + .25vw,.875rem);--text-sm:clamp(.875rem,.8rem + .35vw,1rem);--text-base:clamp(1rem,.95rem + .25vw,1.125rem);--text-lg:clamp(1.125rem,1rem + .75vw,1.5rem);--text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--color-bg:#f7f6f2;--color-surface:#f9f8f5;--color-surface-2:#fbfbf9;--color-surface-offset:#f3f0ec;--color-border:#d4d1ca;--color-divider:#dcd9d5;--color-text:#28251d;--color-text-muted:#67655f;--color-text-faint:#8d8a84;--color-text-inverse:#f9f8f4;--color-primary:#01696f;--color-primary-hover:#0c4e54;--color-blue:#006494;--color-gold:#d19900;--color-success:#437a22;--color-error:#a12c7b;--radius-sm:.375rem;--radius-md:.5rem;--radius-lg:.75rem;--radius-xl:1rem;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(40,37,29,.05);--shadow-md:0 8px 24px rgba(40,37,29,.08);--shadow-lg:0 18px 44px rgba(40,37,29,.12);--font-display:'Zodiak', Georgia, serif;--font-body:'General Sans', Inter, sans-serif}
+    [data-theme="dark"]{--color-bg:#171614;--color-surface:#1c1b19;--color-surface-2:#201f1d;--color-surface-offset:#22211f;--color-border:#393836;--color-divider:#262523;--color-text:#cdccca;--color-text-muted:#a5a4a2;--color-text-faint:#7a7977;--color-text-inverse:#171614;--color-primary:#4f98a3;--color-primary-hover:#227f8b;--color-blue:#5591c7;--color-gold:#e8af34;--color-success:#6daa45;--color-error:#d163a7;--shadow-sm:0 1px 2px rgba(0,0,0,.2);--shadow-md:0 8px 24px rgba(0,0,0,.28);--shadow-lg:0 18px 44px rgba(0,0,0,.38)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{font-family:var(--font-body);font-size:var(--text-base);line-height:1.6;background:var(--color-bg);color:var(--color-text)} img,svg{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{font:inherit;border:0;background:none;color:inherit;cursor:pointer}
+    .skip-link{position:absolute;left:-999px;top:auto}.skip-link:focus{left:1rem;top:1rem;background:var(--color-primary);color:var(--color-text-inverse);padding:.75rem 1rem;border-radius:var(--radius-md);z-index:1000}
+    .container{width:min(1220px,calc(100% - 2rem));margin-inline:auto} header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--color-bg) 82%, transparent);backdrop-filter:blur(14px);border-bottom:1px solid color-mix(in srgb,var(--color-text) 12%, transparent)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding:var(--space-4) 0}.brand{display:flex;align-items:center;gap:var(--space-3);font-weight:700}.brand svg{width:34px;height:34px;color:var(--color-primary)}
+    .nav-links{display:flex;gap:var(--space-4);flex-wrap:wrap;color:var(--color-text-muted);font-size:var(--text-sm)}.nav-actions{display:flex;gap:var(--space-2);align-items:center}
+    .theme-toggle,.btn{min-height:44px;padding:.8rem 1rem;border-radius:var(--radius-full);display:inline-flex;align-items:center;justify-content:center;gap:.6rem;transition:.2s ease}.theme-toggle{border:1px solid color-mix(in srgb,var(--color-text) 12%, transparent);background:var(--color-surface)}.btn{font-size:var(--text-sm);font-weight:600}.btn-primary{background:var(--color-primary);color:var(--color-text-inverse)}.btn-primary:hover{background:var(--color-primary-hover)}.btn-secondary{background:var(--color-surface);border:1px solid color-mix(in srgb,var(--color-text) 12%, transparent)}
+    .hero{padding:clamp(3rem,8vw,6rem) 0 var(--space-16)}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-8);align-items:end}.eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.45rem .8rem;border-radius:var(--radius-full);background:var(--color-surface-offset);color:var(--color-primary);font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+    h1,h2,h3{font-family:var(--font-display);line-height:1.08} h1{font-size:var(--text-xl);max-width:11ch;margin:var(--space-4) 0}.hero p{max-width:62ch;color:var(--color-text-muted)} .cta-row{display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:var(--space-6)}
+    .hero-panel,.card,.case,.timeline,.proof,.note,.dashboard-sample,.page-card{background:var(--color-surface);border:1px solid color-mix(in srgb,var(--color-text) 10%, transparent);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm)} .hero-panel{padding:var(--space-6);display:grid;gap:var(--space-4)}
+    .kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3)} .kpi{padding:var(--space-4);border-radius:var(--radius-lg);background:var(--color-surface-2);border:1px solid color-mix(in srgb,var(--color-text) 9%, transparent)} .kpi span{display:block;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-faint);margin-bottom:.25rem} .kpi strong{font-size:var(--text-lg);font-variant-numeric:tabular-nums}
+    section{padding:var(--space-12) 0}.section-head{display:flex;justify-content:space-between;gap:var(--space-4);align-items:end;margin-bottom:var(--space-6)}.section-head p{max-width:60ch;color:var(--color-text-muted)}
+    .grid-3,.grid-2,.case-grid,.proof-grid,.stack,.dashboard-grid,.page-grid{display:grid;gap:var(--space-4)} .grid-3{grid-template-columns:repeat(3,1fr)} .grid-2{grid-template-columns:repeat(2,1fr)} .case-grid{grid-template-columns:repeat(2,1fr)} .proof-grid{grid-template-columns:repeat(3,1fr)} .dashboard-grid{grid-template-columns:1fr} .page-grid{grid-template-columns:repeat(3,1fr)}
+    .card,.proof,.note,.timeline,.case,.dashboard-sample,.page-card{padding:var(--space-5)} .meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:var(--space-3)} .pill{padding:.35rem .7rem;border-radius:var(--radius-full);background:var(--color-surface-offset);font-size:var(--text-xs);color:var(--color-text-muted);border:1px solid color-mix(in srgb,var(--color-text) 8%, transparent)}
+    .case h3,.card h3,.proof h3,.dashboard-sample h3,.page-card h3{font-size:1.24rem;margin-bottom:.35rem}.case .client,.dashboard-sample .client{font-size:var(--text-sm);text-transform:uppercase;letter-spacing:.08em;color:var(--color-primary);font-weight:700;margin-bottom:var(--space-3)}
+    .list{display:grid;gap:.7rem;margin-top:var(--space-4);color:var(--color-text-muted)} .list div{padding-top:.7rem;border-top:1px solid var(--color-divider)} .list strong{color:var(--color-text)}
+    .band{background:linear-gradient(180deg,var(--color-surface) 0%, color-mix(in srgb,var(--color-surface) 60%, var(--color-bg)) 100%);border-block:1px solid color-mix(in srgb,var(--color-text) 10%, transparent)}
+    .repo-layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:var(--space-4)} .tree{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92rem;background:var(--color-surface-2);padding:var(--space-5);border-radius:var(--radius-lg);overflow:auto;border:1px solid color-mix(in srgb,var(--color-text) 8%, transparent)}
+    .timeline{display:grid;gap:var(--space-3)} .timeline-step{display:grid;grid-template-columns:auto 1fr;gap:var(--space-3);align-items:start} .step-num{width:2rem;height:2rem;border-radius:50%;display:grid;place-items:center;background:var(--color-primary);color:var(--color-text-inverse);font-size:var(--text-xs);font-weight:700;margin-top:.1rem}
+    .dashboard-sample{display:grid;gap:var(--space-4)} .page-card{background:var(--color-surface-2)} .page-card ul{padding-left:1rem;color:var(--color-text-muted)} .page-card li+li{margin-top:.45rem}
+    .sample-frame{padding:var(--space-4);border-radius:var(--radius-lg);background:linear-gradient(180deg,color-mix(in srgb,var(--color-primary) 7%, var(--color-surface)) 0%, var(--color-surface-2) 100%);border:1px solid color-mix(in srgb,var(--color-text) 8%, transparent)}
+    .sample-top{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--space-3);margin-bottom:var(--space-3)} .sample-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-2);margin-bottom:var(--space-3)} .mini{padding:.9rem;border-radius:var(--radius-md);background:var(--color-surface);border:1px solid color-mix(in srgb,var(--color-text) 8%, transparent)} .mini span{display:block;font-size:var(--text-xs);color:var(--color-text-faint);text-transform:uppercase;letter-spacing:.06em} .mini strong{font-size:var(--text-base);font-variant-numeric:tabular-nums}
+    .bars,.chart-box,.table-box,.heatmap{background:var(--color-surface);border:1px solid color-mix(in srgb,var(--color-text) 8%, transparent);border-radius:var(--radius-md);padding:var(--space-3)} .bars{display:grid;gap:.55rem} .bar{height:10px;border-radius:999px;background:linear-gradient(90deg,var(--color-primary),color-mix(in srgb,var(--color-primary) 30%, var(--color-surface-offset)));} .bar.alt{background:linear-gradient(90deg,var(--color-blue),color-mix(in srgb,var(--color-blue) 30%, var(--color-surface-offset)))} .bar.gold{background:linear-gradient(90deg,var(--color-gold),color-mix(in srgb,var(--color-gold) 35%, var(--color-surface-offset)))}
+    .chart-box{min-height:142px;display:grid;align-content:end;gap:.5rem}.spark{display:grid;grid-template-columns:repeat(10,1fr);align-items:end;gap:.35rem;height:92px}.spark div{background:var(--color-primary);border-radius:6px 6px 0 0;opacity:.9}.spark div:nth-child(3n){background:var(--color-blue)}.spark div:nth-child(4n){background:var(--color-gold)}
+    .table-box table{width:100%;border-collapse:collapse;font-size:var(--text-sm)} .table-box th,.table-box td{padding:.5rem;border-bottom:1px solid var(--color-divider);text-align:left} .heatmap-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.4rem;margin-top:.7rem} .heat{aspect-ratio:1;border-radius:.45rem;background:color-mix(in srgb,var(--color-primary) 20%, var(--color-surface-offset))}.heat:nth-child(3n){background:color-mix(in srgb,var(--color-blue) 26%, var(--color-surface-offset))}.heat:nth-child(4n){background:color-mix(in srgb,var(--color-gold) 32%, var(--color-surface-offset))}.heat:nth-child(5n){background:color-mix(in srgb,var(--color-error) 28%, var(--color-surface-offset))}
+    .footer{padding:var(--space-10) 0 var(--space-12);color:var(--color-text-muted);font-size:var(--text-sm)} .accent{color:var(--color-primary)}
+    @media (max-width:1080px){.hero-grid,.repo-layout,.proof-grid,.grid-3,.case-grid,.grid-2,.page-grid,.sample-top,.sample-kpis{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}h1{max-width:14ch}}
+    @media (max-width:720px){.nav{align-items:flex-start;flex-direction:column}.nav-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.kpi-grid{grid-template-columns:1fr}.container{width:min(100% - 1rem,1220px)}.hero{padding-top:2rem}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none !important}}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#top" aria-label="Power BI executive portfolio home">
+      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="8" y="34" width="10" height="20" rx="3" fill="currentColor"></rect><rect x="24" y="22" width="10" height="32" rx="3" fill="currentColor" opacity=".82"></rect><rect x="40" y="10" width="10" height="44" rx="3" fill="currentColor" opacity=".64"></rect><path d="M8 54h44" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path></svg>
+      <span>ABHINAV · Power BI Executive Portfolio</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#positioning">Positioning</a>
+      <a href="#case-studies">Case studies</a>
+      <a href="#samples">Dashboard samples</a>
+      <a href="#repo">GitHub structure</a>
+    </nav>
+    <div class="nav-actions"><button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></div>
+  </div>
+</header>
+<main id="content">
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Executive reporting for enterprise accounts</div>
+        <h1>Detailed Power BI dashboards positioned for enterprise clients.</h1>
+        <p>This updated portfolio now includes client-specific sample dashboard structures with executive pages, diagnostic pages, and operational drill layers for pharma, retail, marketplace, logistics, and wholesale membership businesses.</p>
+        <div class="cta-row"><a class="btn btn-primary" href="#samples">View dashboard samples</a><a class="btn btn-secondary" href="#repo">Use GitHub layout</a></div>
+      </div>
+      <aside class="hero-panel" aria-label="Portfolio summary">
+        <div class="kpi-grid">
+          <div class="kpi"><span>Project type</span><strong>Executive + diagnostic</strong></div>
+          <div class="kpi"><span>Client style</span><strong>Enterprise-ready</strong></div>
+          <div class="kpi"><span>Views per case</span><strong>3 to 5 report pages</strong></div>
+          <div class="kpi"><span>Story level</span><strong>CXO to operator</strong></div>
+        </div>
+        <p style="color:var(--color-text-muted)">The sample layouts mirror best-practice dashboard themes seen in industry and operations examples: KPI scorecards, trend analysis, inventory visibility, supply-chain tracking, retail performance views, and life-sciences/commercial monitoring.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="positioning">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow">Positioning</div><h2>How these samples should read to a client</h2></div>
+        <p>Every sample dashboard should look like a deployable reporting system with clear metrics, layered pages, and stakeholder-specific actions rather than a gallery of isolated charts.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card"><h3>Executive first</h3><p style="color:var(--color-text-muted)">Page 1 should answer whether the business is on track, where the largest risks sit, and which business unit needs intervention now.</p><div class="meta"><span class="pill">Scorecards</span><span class="pill">Variance</span><span class="pill">Alerts</span></div></article>
+        <article class="card"><h3>Diagnostic second</h3><p style="color:var(--color-text-muted)">Page 2 and 3 should break performance into region, category, channel, warehouse, supplier, territory, or club so a leader can quickly isolate root causes.</p><div class="meta"><span class="pill">Drivers</span><span class="pill">Segmentation</span><span class="pill">Root cause</span></div></article>
+        <article class="card"><h3>Operational next action</h3><p style="color:var(--color-text-muted)">Every report should end with exception tables, risk buckets, or action queues so it feels tied to business routines and leadership reviews.</p><div class="meta"><span class="pill">Exception queue</span><span class="pill">Decision prompts</span><span class="pill">Review cadence</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="case-studies">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow">Case studies</div><h2>Enterprise-style dashboard concepts</h2></div>
+        <p>These remain brand-inspired samples for organizations similar to Merck, Nike, Wayfair, ShipBob, and Costco, so the portfolio stays professional and safe for public publishing.</p>
+      </div>
+      <div class="case-grid">
+        <article class="case"><div class="client">Merck-style · Commercial + compliance</div><h3>Pharma field performance cockpit</h3><p style="color:var(--color-text-muted)">An executive cockpit tying territory sales, physician engagement cadence, product mix, sample utilization, and compliance monitoring into one leadership view.</p><div class="list"><div><strong>Audience:</strong> Commercial director, regional heads, compliance lead.</div><div><strong>KPIs:</strong> Rx growth, reach/frequency attainment, sample ROI, active prescriber coverage, compliance issue rate.</div><div><strong>Depth:</strong> Territory drill-through, product segmentation, exception flags for high-risk territories.</div></div></article>
+        <article class="case"><div class="client">Nike-style · Omnichannel retail</div><h3>Global demand and inventory command center</h3><p style="color:var(--color-text-muted)">A leadership dashboard connecting sell-through, stock health, markdown risk, return behavior, and campaign lift across channels and regions.</p><div class="list"><div><strong>Audience:</strong> Merchandising VP, digital commerce head, inventory planner.</div><div><strong>KPIs:</strong> Revenue, sell-through %, weeks of cover, return rate, full-price mix, stockout loss estimate.</div><div><strong>Depth:</strong> Plan vs actual pacing, assortment drill, regional risk segmentation.</div></div></article>
+        <article class="case"><div class="client">Wayfair-style · Marketplace + CX</div><h3>Category margin and customer experience suite</h3><p style="color:var(--color-text-muted)">A suite that lets category and operations leaders monitor contribution margin, fulfillment cost, supplier issues, returns, and customer satisfaction by category.</p><div class="list"><div><strong>Audience:</strong> GM, category lead, CX operations.</div><div><strong>KPIs:</strong> Contribution margin, AOV, cancellation %, damage rate, OTIF, NPS.</div><div><strong>Depth:</strong> Supplier heatmaps, return root-cause patterns, cohort lens for repeat buyers.</div></div></article>
+        <article class="case"><div class="client">ShipBob-style · Fulfillment operations</div><h3>Warehouse network executive control tower</h3><p style="color:var(--color-text-muted)">An operations control tower focused on throughput, backlog, labor output, accuracy, SLA risk, and carrier performance across a distributed node network.</p><div class="list"><div><strong>Audience:</strong> COO, fulfillment director, transportation lead.</div><div><strong>KPIs:</strong> Same-day ship %, cost/order, cycle time, pick accuracy, backlog aging, on-time delivery.</div><div><strong>Depth:</strong> Shift diagnostics, facility comparison, carrier exception routing.</div></div></article>
+        <article class="case"><div class="client">Costco-style · Membership + basket economics</div><h3>Wholesale membership profitability dashboard</h3><p style="color:var(--color-text-muted)">A dashboard connecting member renewal, traffic, basket structure, private label mix, gross margin, and club-level economics for executive review.</p><div class="list"><div><strong>Audience:</strong> Country head, finance partner, store operations lead.</div><div><strong>KPIs:</strong> Renewal %, trips/member, basket size, private label share, ancillary revenue, shrink/spoilage.</div><div><strong>Depth:</strong> Renewal risk lens, club scorecards, category basket drill-through.</div></div></article>
+        <article class="case"><div class="client">Cross-client showcase · Delivery maturity</div><h3>Portfolio anchor page</h3><p style="color:var(--color-text-muted)">A single page showing your method, stakeholder discovery, model design, QA process, page architecture, and handoff discipline.</p><div class="list"><div><strong>Include:</strong> Wireframe, KPI dictionary excerpt, model schema, release checklist.</div><div><strong>Purpose:</strong> This makes the portfolio feel like a consulting offer, not only a design exercise.</div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="samples">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow">Dashboard samples</div><h2>Executive-level sample dashboards for each client style</h2></div>
+        <p>The sample structures below are informed by common patterns in executive, retail, supply-chain, inventory, life-sciences, and operations dashboards: KPI scorecards, trend panels, supplier and warehouse visibility, and business-function drill layers.</p>
+      </div>
+      <div class="dashboard-grid">
+        <article class="dashboard-sample">
+          <div class="client">Merck-style sample dashboard</div>
+          <h3>Pharma commercial and compliance executive suite</h3>
+          <div class="sample-frame">
+            <div class="sample-kpis"><div class="mini"><span>Rx growth</span><strong>+8.4%</strong></div><div class="mini"><span>Coverage</span><strong>74%</strong></div><div class="mini"><span>Sample ROI</span><strong>3.2x</strong></div><div class="mini"><span>Compliance risk</span><strong>1.8%</strong></div></div>
+            <div class="sample-top"><div class="chart-box"><strong>Executive trend</strong><div class="spark"><div style="height:42%"></div><div style="height:46%"></div><div style="height:58%"></div><div style="height:49%"></div><div style="height:61%"></div><div style="height:67%"></div><div style="height:72%"></div><div style="height:70%"></div><div style="height:79%"></div><div style="height:84%"></div></div></div><div class="bars"><strong>Risk mix</strong><div class="bar" style="width:88%"></div><div class="bar alt" style="width:69%"></div><div class="bar gold" style="width:41%"></div></div></div>
+            <div class="table-box"><table><thead><tr><th>Territory</th><th>Rx vs Plan</th><th>Coverage</th><th>Risk</th></tr></thead><tbody><tr><td>North</td><td>+6.2%</td><td>79%</td><td>Low</td></tr><tr><td>West</td><td>-3.8%</td><td>61%</td><td>High</td></tr><tr><td>South</td><td>+9.5%</td><td>76%</td><td>Medium</td></tr></tbody></table></div>
+          </div>
+          <div class="page-grid">
+            <article class="page-card"><h3>Page 1 · Executive scorecard</h3><ul><li>National revenue, Rx growth, plan attainment, compliance risk, and key product mix.</li><li>Territory ranking with red-amber-green performance signals.</li><li>Leadership summary box with top 3 actions this month.</li></ul></article>
+            <article class="page-card"><h3>Page 2 · Territory diagnostics</h3><ul><li>Region, territory, rep, specialty, and product filters.</li><li>Call frequency, prescriber activation, sample conversion, and segment penetration.</li><li>Scatter plot for opportunity vs execution quality.</li></ul></article>
+            <article class="page-card"><h3>Page 3 · Compliance and exceptions</h3><ul><li>Sample policy breaches, overdue follow-ups, and audit-ready exception log.</li><li>Drill-through to territory and rep level.</li><li>Action queue for regional heads and compliance reviewers.</li></ul></article>
+          </div>
+        </article>
+
+        <article class="dashboard-sample">
+          <div class="client">Nike-style sample dashboard</div>
+          <h3>Omnichannel demand, stock, and markdown command center</h3>
+          <div class="sample-frame">
+            <div class="sample-kpis"><div class="mini"><span>Net revenue</span><strong>$128M</strong></div><div class="mini"><span>Sell-through</span><strong>68%</strong></div><div class="mini"><span>Weeks cover</span><strong>7.4</strong></div><div class="mini"><span>Return rate</span><strong>11.6%</strong></div></div>
+            <div class="sample-top"><div class="chart-box"><strong>Demand pacing</strong><div class="spark"><div style="height:55%"></div><div style="height:51%"></div><div style="height:62%"></div><div style="height:65%"></div><div style="height:69%"></div><div style="height:60%"></div><div style="height:72%"></div><div style="height:79%"></div><div style="height:73%"></div><div style="height:86%"></div></div></div><div class="bars"><strong>Channel mix</strong><div class="bar" style="width:82%"></div><div class="bar alt" style="width:57%"></div><div class="bar gold" style="width:36%"></div></div></div>
+            <div class="heatmap"><strong>Market heatmap</strong><div class="heatmap-grid"><div class="heat"></div><div class="heat"></div><div class="heat"></div><div class="heat"></div><div class="heat"></div><div class="heat"></div><div class="heat"></div><div class="heat"></div><div class="heat"></div><div class="heat"></div></div></div>
+          </div>
+          <div class="page-grid">
+            <article class="page-card"><h3>Page 1 · Executive retail scorecard</h3><ul><li>Revenue, gross margin, sell-through, stockout risk, markdown pressure, and campaign lift.</li><li>Region and channel selectors for digital, owned retail, and wholesale.</li><li>Current quarter plan vs actual and forecast gap.</li></ul></article>
+            <article class="page-card"><h3>Page 2 · Inventory and assortment</h3><ul><li>Weeks of cover by division, product family, gender, and key city cluster.</li><li>Fast movers, slow movers, aging stock, and replenishment needs.</li><li>Matrix for inventory depth versus demand velocity.</li></ul></article>
+            <article class="page-card"><h3>Page 3 · Profit recovery actions</h3><ul><li>Markdown candidates, return hotspots, promo elasticity, and stockout loss estimate.</li><li>Scenario buttons for conservative, base, and aggressive clearance strategy.</li><li>Top intervention list by market and product line.</li></ul></article>
+          </div>
+        </article>
+
+        <article class="dashboard-sample">
+          <div class="client">Wayfair-style sample dashboard</div>
+          <h3>Category margin, supplier quality, and customer experience suite</h3>
+          <div class="sample-frame">
+            <div class="sample-kpis"><div class="mini"><span>Contribution margin</span><strong>18.7%</strong></div><div class="mini"><span>Damage rate</span><strong>2.4%</strong></div><div class="mini"><span>OTIF</span><strong>91%</strong></div><div class="mini"><span>NPS</span><strong>49</strong></div></div>
+            <div class="sample-top"><div class="bars"><strong>Margin bridge</strong><div class="bar" style="width:90%"></div><div class="bar gold" style="width:63%"></div><div class="bar alt" style="width:48%"></div></div><div class="chart-box"><strong>CX trend</strong><div class="spark"><div style="height:38%"></div><div style="height:45%"></div><div style="height:41%"></div><div style="height:56%"></div><div style="height:53%"></div><div style="height:64%"></div><div style="height:61%"></div><div style="height:70%"></div><div style="height:73%"></div><div style="height:77%"></div></div></div></div>
+            <div class="table-box"><table><thead><tr><th>Supplier</th><th>OTIF</th><th>Damage</th><th>Margin</th></tr></thead><tbody><tr><td>Supplier A</td><td>96%</td><td>1.1%</td><td>22.4%</td></tr><tr><td>Supplier B</td><td>87%</td><td>3.7%</td><td>14.2%</td></tr><tr><td>Supplier C</td><td>92%</td><td>2.6%</td><td>18.9%</td></tr></tbody></table></div>
+          </div>
+          <div class="page-grid">
+            <article class="page-card"><h3>Page 1 · GM review page</h3><ul><li>Revenue quality, gross-to-contribution margin, category growth, and customer complaint summary.</li><li>Top value-destroying drivers: shipping, damages, discounts, cancellations.</li><li>Category ranking by profit pool and risk.</li></ul></article>
+            <article class="page-card"><h3>Page 2 · Supplier and fulfillment diagnostics</h3><ul><li>Supplier OTIF, damage claims, return reason mix, and warehouse handling variance.</li><li>Heatmap for supplier versus node quality performance.</li><li>Drill-through to SKU family and fulfillment route.</li></ul></article>
+            <article class="page-card"><h3>Page 3 · Customer experience page</h3><ul><li>NPS, repeat purchase, delivery promise adherence, and defect trend.</li><li>Cohort view to compare first-order and repeat-order issues.</li><li>Action table for top categories and suppliers needing remediation.</li></ul></article>
+          </div>
+        </article>
+
+        <article class="dashboard-sample">
+          <div class="client">ShipBob-style sample dashboard</div>
+          <h3>Fulfillment network control tower and SLA risk monitor</h3>
+          <div class="sample-frame">
+            <div class="sample-kpis"><div class="mini"><span>Same-day ship</span><strong>93.2%</strong></div><div class="mini"><span>Cycle time</span><strong>11.4 hrs</strong></div><div class="mini"><span>Pick accuracy</span><strong>99.1%</strong></div><div class="mini"><span>Backlog risk</span><strong>4.8%</strong></div></div>
+            <div class="sample-top"><div class="chart-box"><strong>Node throughput</strong><div class="spark"><div style="height:49%"></div><div style="height:53%"></div><div style="height:58%"></div><div style="height:61%"></div><div style="height:68%"></div><div style="height:65%"></div><div style="height:74%"></div><div style="height:78%"></div><div style="height:81%"></div><div style="height:85%"></div></div></div><div class="bars"><strong>SLA pressure</strong><div class="bar gold" style="width:74%"></div><div class="bar" style="width:59%"></div><div class="bar alt" style="width:43%"></div></div></div>
+            <div class="table-box"><table><thead><tr><th>Node</th><th>Orders</th><th>Cycle time</th><th>OTD</th></tr></thead><tbody><tr><td>Dallas</td><td>18.4k</td><td>9.8h</td><td>97.2%</td></tr><tr><td>Phoenix</td><td>15.1k</td><td>13.6h</td><td>92.5%</td></tr><tr><td>Chicago</td><td>12.9k</td><td>11.1h</td><td>95.9%</td></tr></tbody></table></div>
+          </div>
+          <div class="page-grid">
+            <article class="page-card"><h3>Page 1 · COO control tower</h3><ul><li>Throughput, cost/order, backlog aging, labor productivity, and on-time dispatch.</li><li>Facility leaderboard with red flags for capacity pressure.</li><li>Daily review panel for at-risk SLAs.</li></ul></article>
+            <article class="page-card"><h3>Page 2 · Warehouse operations</h3><ul><li>Shift, zone, picker, and packer productivity with error decomposition.</li><li>Dock-to-stock, pick-path, and queue time analysis.</li><li>Variance against staffing and volume plan.</li></ul></article>
+            <article class="page-card"><h3>Page 3 · Carrier and exception management</h3><ul><li>Carrier on-time delivery, transit delay causes, and failed handoff trend.</li><li>Risk queue for orders breaching promised SLA.</li><li>Interactive map or node-to-carrier matrix for service issues.</li></ul></article>
+          </div>
+        </article>
+
+        <article class="dashboard-sample">
+          <div class="client">Costco-style sample dashboard</div>
+          <h3>Membership economics, basket architecture, and club performance</h3>
+          <div class="sample-frame">
+            <div class="sample-kpis"><div class="mini"><span>Renewal</span><strong>89.4%</strong></div><div class="mini"><span>Trips/member</span><strong>4.7</strong></div><div class="mini"><span>Basket value</span><strong>$142</strong></div><div class="mini"><span>Private label</span><strong>31%</strong></div></div>
+            <div class="sample-top"><div class="chart-box"><strong>Renewal trend</strong><div class="spark"><div style="height:45%"></div><div style="height:48%"></div><div style="height:51%"></div><div style="height:57%"></div><div style="height:55%"></div><div style="height:62%"></div><div style="height:67%"></div><div style="height:71%"></div><div style="height:74%"></div><div style="height:79%"></div></div></div><div class="bars"><strong>Basket mix</strong><div class="bar" style="width:85%"></div><div class="bar alt" style="width:52%"></div><div class="bar gold" style="width:47%"></div></div></div>
+            <div class="heatmap"><strong>Club performance matrix</strong><div class="heatmap-grid"><div class="heat"></div><div class="heat"></div><div class="heat"></div><div class="heat"></div><div class="heat"></div><div class="heat"></div><div class="heat"></div><div class="heat"></div><div class="heat"></div><div class="heat"></div></div></div>
+          </div>
+          <div class="page-grid">
+            <article class="page-card"><h3>Page 1 · Executive membership scorecard</h3><ul><li>Renewal rate, member growth, traffic, basket value, margin mix, and ancillary revenue.</li><li>Region and club scorecards with target attainment.</li><li>Executive summary of growth, retention, and cost signals.</li></ul></article>
+            <article class="page-card"><h3>Page 2 · Club and category diagnostics</h3><ul><li>Trips per member, category basket mix, private label penetration, and spoilage by club.</li><li>Club comparison matrix for high-value and at-risk locations.</li><li>Top categories driving renewal and repeat traffic.</li></ul></article>
+            <article class="page-card"><h3>Page 3 · Renewal risk and profitability actions</h3><ul><li>Renewal-risk segmentation by tenure, visit decline, basket decline, and service issues.</li><li>Margin dilution drivers including markdowns, shrink, and fresh waste.</li><li>Priority interventions for clubs and member cohorts.</li></ul></article>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="repo">
+    <div class="container repo-layout">
+      <div>
+        <div class="section-head" style="margin-bottom:var(--space-4)"><div><div class="eyebrow">GitHub architecture</div><h2>Repository structure that looks senior</h2></div></div>
+        <div class="timeline">
+          <div class="timeline-step"><div class="step-num">1</div><div><strong>Lead with a premium README.</strong><br><span style="color:var(--color-text-muted)">State your industries, solution themes, and featured executive dashboards in the first screen.</span></div></div>
+          <div class="timeline-step"><div class="step-num">2</div><div><strong>One folder per client-style case.</strong><br><span style="color:var(--color-text-muted)">Each folder should contain screenshots, page-by-page design notes, KPI logic, and dataset assumptions.</span></div></div>
+          <div class="timeline-step"><div class="step-num">3</div><div><strong>Show page architecture.</strong><br><span style="color:var(--color-text-muted)">Include overview page, diagnostics page, and action/exception page so buyers see full dashboard thinking.</span></div></div>
+          <div class="timeline-step"><div class="step-num">4</div><div><strong>Document governance details.</strong><br><span style="color:var(--color-text-muted)">Expose measure logic, filters, granularity, RLS assumptions, and refresh model.</span></div></div>
+        </div>
+      </div>
+      <div class="tree" aria-label="Suggested repository tree">powerbi-executive-portfolio/
+├── README.md
+├── assets/
+│   ├── portfolio-banner.png
+│   ├── dashboard-style-guide.png
+│   └── executive-scorecard-preview.png
+├── 01-merck-commercial-cockpit/
+│   ├── README.md
+│   ├── screenshots/
+│   ├── page-architecture.md
+│   ├── metric-dictionary.md
+│   ├── dax-patterns.md
+│   └── data-model-notes.md
+├── 02-nike-demand-command-center/
+├── 03-wayfair-margin-cx-suite/
+├── 04-shipbob-control-tower/
+├── 05-costco-membership-profitability/
+└── templates/
+    ├── case-study-template.md
+    ├── stakeholder-question-bank.md
+    └── dashboard-qa-checklist.md</div>
+    </div>
+  </section>
+</main>
+<footer class="footer"><div class="container">Built as a GitHub-ready executive portfolio shell with sample dashboard layouts. Replace sample metrics with your screenshots, KPI definitions, and PBIX-backed assets before publishing.</div></footer>
+<script>
+(function(){const t=document.querySelector('[data-theme-toggle]');const r=document.documentElement;let d=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';r.setAttribute('data-theme',d);const icon=(mode)=>mode==='dark'?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';t.innerHTML=icon(d==='dark'?'dark':'light');t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode');t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);t.innerHTML=icon(d==='dark'?'dark':'light');t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode')})})();
+</script>
+</body>
+</html>
